@@ -1,0 +1,59 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Integer numbers[] = {1,2,3,4,5,6,7,8,9,10};
+
+        String[] alf = {"A","B","C","D"};
+
+        swap(numbers,1,6);
+
+        ArrayToArrayList(alf);
+
+
+        Box<Apple> ap1 = new Box<>();
+        ap1.addFruit(new Apple(),5);
+        System.out.println(ap1.getWeight());
+
+        Box<Orange> or1 = new Box<>();
+        or1.addFruit(new Orange(), 10);
+        System.out.println(or1.getWeight());
+
+        Box<Apple> ap2 = new Box<>();
+        ap2.addFruit(new Apple(), 3);
+
+        Box<Orange> or2 = new Box<>();
+        or2.addFruit(new Orange(), 7);
+
+        System.out.println(ap1.compare(or1));
+        ap1.pourTo(ap2);
+        or1.pourTo(or2);
+
+        System.out.println(ap1.getWeight());
+        System.out.println(ap2.getWeight());
+        System.out.println(or1.getWeight());
+        System.out.println(or2.getWeight());
+
+
+
+    }
+
+    public static void swap(Object[] arr, int x, int y){
+        System.out.println("Входящий массив: " + Arrays.toString(arr));
+        Object o = arr[x];
+        arr[x] = arr[y];
+        arr[y] = o;
+        System.out.println("Результат: " + Arrays.toString(arr));
+    }
+
+    public static <T> void ArrayToArrayList(T[]arr){
+        ArrayList<T> arr1 = new ArrayList<>(Arrays.asList(arr));
+        System.out.println("Результат метода ArrayToArrayList: " + arr1);
+     }
+
+
+
+}
